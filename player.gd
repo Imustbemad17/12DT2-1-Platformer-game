@@ -77,6 +77,7 @@ func _death(area):
 	if area.has_meta('spike'):
 		if global.lives > 0:
 			global.lives -= 1
+			
 			position = Vector2(314,604)
 		if global.lives < 1:
 			global.coin = 0

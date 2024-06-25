@@ -212,3 +212,11 @@ position = Vector2(2223, 565)
 
 [node name="Area2D17" parent="." instance=ExtResource("3_nicu4")]
 position = Vector2(1967, 565)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -136.0
+offset_top = 524.0
+offset_right = -60.0
+offset_bottom = 573.0
+text = "English or
+ spanish?"
