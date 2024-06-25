@@ -1,19 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj7otx5k2dxpo"]
+[gd_scene load_steps=3 format=3 uid="uid://cj7otx5k2dxpo"]
+
+[ext_resource type="Texture2D" uid="uid://bdtg2hllkvb0k" path="res://New Piskel-1.png (1).png" id="1_n3wr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ario"]
-size = Vector2(38, 39)
+size = Vector2(8, 10)
 
 [node name="Area2D" type="Area2D"]
 metadata/spike = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(-1, 0.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_7ario")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -21.0
-offset_top = -20.0
-offset_right = 19.0
-offset_bottom = 20.0
-color = Color(0, 0, 0, 1)
+[node name="NewPiskel-1_png(1)" type="Sprite2D" parent="."]
+texture = ExtResource("1_n3wr2")

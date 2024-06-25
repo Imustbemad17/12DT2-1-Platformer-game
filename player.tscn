@@ -17,7 +17,7 @@
 size = Vector2(8, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtnho"]
-size = Vector2(14, 20)
+size = Vector2(8, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ajbp0"]
 animations = [{
@@ -91,7 +91,7 @@ position_smoothing_speed = 10.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Coincollecter" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_dtnho")
 
 [node name="Timer" type="Timer" parent="."]
@@ -103,5 +103,5 @@ sprite_frames = SubResource("SpriteFrames_ajbp0")
 animation = &"idle"
 flip_h = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_death"]
 [connection signal="area_entered" from="Area2D" to="." method="_coin"]
+[connection signal="area_entered" from="Area2D" to="." method="_death"]
