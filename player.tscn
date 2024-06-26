@@ -103,5 +103,5 @@ sprite_frames = SubResource("SpriteFrames_ajbp0")
 animation = &"idle"
 flip_h = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_coin"]
 [connection signal="area_entered" from="Area2D" to="." method="_death"]
+[connection signal="area_entered" from="Area2D" to="." method="_coin"]

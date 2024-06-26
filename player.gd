@@ -48,22 +48,15 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction * SPEED, 0.1)
 		if is_on_floor():
 			$AnimatedSprite2D.play("walk_cycle")
-			if Input.is_action_pressed("ui_left"):
-				$AnimatedSprite2D.flip_h = true
-			elif Input.is_action_pressed("ui_right"):
-				$AnimatedSprite2D.flip_h = false
 		elif is_on_wall_only() and velocity.y > 0:
 			$AnimatedSprite2D.play("wallhang")
-			if Input.is_action_pressed("ui_left"):
-				$AnimatedSprite2D.flip_h = true
-			elif Input.is_action_pressed("ui_right"):
-				$AnimatedSprite2D.flip_h = false
-		elif (not (is_on_wall() and is_on_floor())):
+		elif not (is_on_wall() and is_on_floor()):
 			$AnimatedSprite2D.play("jump")
-			if Input.is_action_pressed("ui_left"):
-				$AnimatedSprite2D.flip_h = true
-			elif Input.is_action_pressed("ui_right"):
-				$AnimatedSprite2D.flip_h = false
+
+		if Input.is_action_pressed("ui_left"):
+			$AnimatedSprite2D.flip_h = true
+		elif Input.is_action_pressed("ui_right"):
+			$AnimatedSprite2D.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
@@ -77,7 +70,6 @@ func _death(area):
 	if area.has_meta('spike'):
 		if global.lives > 0:
 			global.lives -= 1
-			
 			position = Vector2(314,604)
 		if global.lives < 1:
 			global.coin = 0
