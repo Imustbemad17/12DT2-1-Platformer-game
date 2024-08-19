@@ -100,8 +100,8 @@ shape = SubResource("RectangleShape2D_dtnho")
 position = Vector2(-1.90735e-06, 0)
 scale = Vector2(0.84375, 0.78125)
 sprite_frames = SubResource("SpriteFrames_ajbp0")
-animation = &"idle"
+animation = &"walk_cycle"
 flip_h = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_death"]
 [connection signal="area_entered" from="Area2D" to="." method="_coin"]
+[connection signal="area_entered" from="Area2D" to="." method="_death"]
