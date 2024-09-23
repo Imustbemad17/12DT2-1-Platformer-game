@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://eejcn5tdjnet"]
+[gd_scene load_steps=17 format=3 uid="uid://eejcn5tdjnet"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3thb5"]
 [ext_resource type="Texture2D" uid="uid://dlhvuxjc4rvce" path="res://Walk Cycle/Player-3.png.png" id="2_t5xcd"]
@@ -75,6 +75,16 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wb8ko"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+direction = Vector3(-30, 5, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 100
 script = ExtResource("1_3thb5")
@@ -103,5 +113,13 @@ sprite_frames = SubResource("SpriteFrames_ajbp0")
 animation = &"walk_cycle"
 flip_h = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_coin"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(246, -89)
+amount = 10000
+process_material = SubResource("ParticleProcessMaterial_wb8ko")
+lifetime = 10.0
+preprocess = 10.0
+collision_base_size = 0.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_death"]
+[connection signal="area_entered" from="Area2D" to="." method="_coin"]

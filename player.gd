@@ -39,10 +39,6 @@ func _physics_process(delta):
 			double_jump = false
 	if is_on_wall_only() and not double_jump:
 		double_jump = true
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	if is_on_floor and direction:
 		velocity.x = lerp(velocity.x, direction * SPEED, 0.1)
