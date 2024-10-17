@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://eejcn5tdjnet"]
+[gd_scene load_steps=18 format=3 uid="uid://eejcn5tdjnet"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3thb5"]
 [ext_resource type="Texture2D" uid="uid://dlhvuxjc4rvce" path="res://Walk Cycle/Player-3.png.png" id="2_t5xcd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://copvgf7rkd18b" path="res://Walk Cycle/sprite_1.png" id="10_67h58"]
 [ext_resource type="Texture2D" uid="uid://cdivrgbedxtlc" path="res://Walk Cycle/sprite_2.png" id="11_7kces"]
 [ext_resource type="Texture2D" uid="uid://dqkqu2l7imokq" path="res://Walk Cycle/sprite_3.png" id="12_rj5la"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="13_0j2en"]
 [ext_resource type="Texture2D" uid="uid://dw5hi3mn0vh3h" path="res://Walk Cycle/sprite_4.png" id="13_2lf21"]
 [ext_resource type="Texture2D" uid="uid://bdanfffqcshhf" path="res://Walk Cycle/sprite_5.png" id="14_x3e6o"]
 [ext_resource type="Texture2D" uid="uid://ccoh1shj6xt34" path="res://Walk Cycle/sprite_6.png" id="15_8f0nw"]
@@ -77,19 +78,22 @@ animations = [{
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wb8ko"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -100, 0)
 emission_shape = 3
 emission_box_extents = Vector3(500, 1, 1)
 direction = Vector3(-30, 5, 0)
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 20, 0)
+collision_mode = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 100
+floor_stop_on_slope = false
+floor_max_angle = 0.0436332
 script = ExtResource("1_3thb5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_k41qc")
 
@@ -104,7 +108,9 @@ position_smoothing_speed = 10.0
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_dtnho")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.90735e-06, 0)
@@ -112,10 +118,11 @@ scale = Vector2(0.84375, 0.78125)
 sprite_frames = SubResource("SpriteFrames_ajbp0")
 animation = &"walk_cycle"
 flip_h = true
+script = ExtResource("13_0j2en")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(246, -89)
-amount = 10000
+position = Vector2(244, -111)
+amount = 8000
 process_material = SubResource("ParticleProcessMaterial_wb8ko")
 lifetime = 10.0
 preprocess = 10.0

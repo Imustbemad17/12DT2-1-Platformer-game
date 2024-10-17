@@ -10,7 +10,7 @@ var double_jump = true
 var coin = 0
 var lives = 3
 @onready var global = get_node("/root/Global")
-
+@onready var coyotetimer = $CoyoteTimer
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_select"):
-		if is_on_floor():
+		if is_on_floor() || !coyotetimer.is_stopped():
 			velocity.y = JUMP_VELOCITY
 		if is_on_wall_only() and Input.is_action_pressed("ui_right"):
 			velocity.y = DOUBLE_JUMP_VELOCITY
@@ -59,9 +59,12 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("idle")
 		elif not is_on_floor():
 			$AnimatedSprite2D.play("jump")
-		
+	var was_on_floor = is_on_floor()
 	move_and_slide()
-
+	
+	if was_on_floor && !is_on_floor():
+		coyotetimer.start()
+	
 func _death(area):
 	if area.has_meta('spike'):
 		if global.lives > 0:
