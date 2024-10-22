@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq2aa57ch5ht1"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_rtpc5"]
+[ext_resource type="Texture2D" uid="uid://c42au1375ebsr" path="res://iceberg-isolated-on-transparent-background-snowy-mountain-png.png" id="2_onng6"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_rtpc5")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 465.0
+offset_right = 149.0
+offset_bottom = 544.0
+text = "START"
+
+[node name="Quit" type="Button" parent="."]
+z_index = 1
+offset_left = 20.0
+offset_top = 548.0
+offset_right = 149.0
+offset_bottom = 626.0
+text = "QUIT GAME"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -90.0
+offset_top = -61.0
+offset_right = 1226.0
+offset_bottom = 712.0
+mouse_filter = 2
+color = Color(0, 0.533333, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 824.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 75
+text = "MOUNTAIN MOUNTN'
+"
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(894, 524)
+scale = Vector2(1.26316, 1.44)
+texture = ExtResource("2_onng6")
+
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]

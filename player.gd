@@ -64,7 +64,10 @@ func _physics_process(delta):
 	
 	if was_on_floor && !is_on_floor():
 		coyotetimer.start()
-	
+		if Input.is_action_just_pressed("ui_select") and  !is_on_floor():
+			coyotetimer.stop()
+
+
 func _death(area):
 	if area.has_meta('spike'):
 		if global.lives > 0:
@@ -82,3 +85,7 @@ func _coin(area):
 
 
 
+
+
+func _on_area_2d_area_entered(area):
+	get_tree().change_scene_to_file("res://win.tscn")
