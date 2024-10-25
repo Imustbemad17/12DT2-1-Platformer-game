@@ -10,4 +10,4 @@ func _on_button_button_down():
 
 
 func _on_button_2_button_down():
-	get_tree().quit
+	get_tree().quit()

@@ -473,7 +473,7 @@ polygon = PackedVector2Array(2806, -381, 2800, -384, 2800, -384, 2896, -384, 289
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_uxgcj")]
-position = Vector2(71, -30)
+position = Vector2(72, -31)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_x1tbe")
@@ -518,46 +518,46 @@ horizontal_alignment = 1
 z_index = 6
 position = Vector2(4854, -2211)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Buffman1" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3469, -207)
 texture = ExtResource("11_78fko")
 flip_h = true
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Buffman2" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3496, -223)
 texture = ExtResource("11_78fko")
 flip_h = true
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="Buffman3" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3517, -255)
 texture = ExtResource("11_78fko")
 flip_h = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Buffman4" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3448, -207)
 texture = ExtResource("11_78fko")
 flip_h = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Buffman5" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3395, -207)
 texture = ExtResource("11_78fko")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Buffman6" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3366, -223)
 texture = ExtResource("11_78fko")
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="Buffman7" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3345, -240)
 texture = ExtResource("11_78fko")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Buffman8" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3419, -207)
 texture = ExtResource("11_78fko")

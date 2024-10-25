@@ -60,7 +60,10 @@ func _physics_process(delta):
 		elif not is_on_floor():
 			$AnimatedSprite2D.play("jump")
 	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
+	
+	# Code for coyote timer
 	
 	if was_on_floor && !is_on_floor():
 		coyotetimer.start()
@@ -78,6 +81,7 @@ func _death(area):
 			global.lives = 3
 			get_tree().reload_current_scene()
 
+
 func _coin(area):
 	if area.has_meta("coin"):
 		global.coin += 1
@@ -86,6 +90,6 @@ func _coin(area):
 
 
 
-
+# Changes to the win screen
 func _on_area_2d_area_entered(area):
 	get_tree().change_scene_to_file("res://win.tscn")
